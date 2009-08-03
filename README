@@ -1,3 +1,14 @@
 == s3browser
 
-You should document your project here.
+= Setup 
+Just put your keys in s3.yml
+
+
+= Deploy
+config.ru is ready deployment script for Heroku hosting.
+
+Some documentation on deployment
+http://www.sinatrarb.com/book.html#deployment
+
+
+
