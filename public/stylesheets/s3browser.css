@@ -1,0 +1,45 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+a {
+    color: #FFF;
+    text-decoration: underline;
+}
+a:hover {
+    color: #EBE6D1;
+    text-decoration: underline;
+}
+
+a img {
+    border: none;
+}
+
+p, form, ul, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+div#container {
+    text-align: left;
+    margin-top: 50px;
+}
+
+div.folder_container {
+    width: 400px;
+    margin: 0 auto;
+    
+}
+div.folder_container td {
+    background-color: #AFB8A9;
+    border: #8A898E solid 1px;
+}
+

@@ -1,0 +1,16 @@
+<div class="folder_container">
+  <table width="100%">
+    <tr>
+      <tr>
+        <td width="17px"><%= link_to image_tag('folder.png'), "/" %></td>
+        <td><%= link_to '..', "/" %></td>
+      </tr>
+    </tr>
+    <% @objects.each do |object| %>
+      <tr>
+        <td width="17px"><%= link_to image_tag('film.png'), object.url %></td>
+        <td><%= link_to object.key, "http://s3.amazonaws.com#{object.path}?torrent" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
