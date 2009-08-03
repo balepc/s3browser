@@ -1,0 +1,40 @@
+set :application, "s3browser"
+
+set :scm, :git
+set :repository,  "git@github.com:balepc/s3browser.git"
+set :branch, "master"
+
+
+set :deploy_via, :export
+
+set :user, 'deploy'
+
+set :ssh_options, { :forward_agent => true, :port=>123 }
+set :deploy_to, "/var/www/apps/#{application}"
+
+role :app, "deploy@mydomain"
+role :web, "deploy@mydomain"
+role :db,  "deploy@mydomain", :primary => true
+
+namespace :deploy do
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  task :after_update_code, :roles => [:app] do
+    run "thin -s 2 -C config.yml -R config.ru stop"
+
+    run "cp #{shared_path}/config.yml #{release_path}/"
+    run "cp #{shared_path}/s3.yml #{release_path}/config/"
+
+    run "thin -s 2 -C config.yml -R config.ru start"
+  end
+
+#  after "deploy:symlink", "deploy:update_crontab"
+#
+#  task :update_crontab, :roles => :db do
+#    run "cd #{release_path} && whenever --update-crontab #{application}"
+#  end
+
+end
