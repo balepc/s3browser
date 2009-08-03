@@ -42,4 +42,9 @@ div.folder_container td {
     background-color: #AFB8A9;
     border: #8A898E solid 1px;
 }
+div.folder_container img {
+    width: 20px;
+    height: 20px;
+
+}
 

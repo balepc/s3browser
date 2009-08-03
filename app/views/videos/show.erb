@@ -2,14 +2,16 @@
   <table width="100%">
     <tr>
       <tr>
-        <td width="17px"><%= link_to image_tag('folder.png'), "/" %></td>
-        <td><%= link_to '..', "/" %></td>
+        <td width="17px"><%= link_to image_tag('folder.png'), "/", :title=>'Go up' %></td>
+        <td><%= link_to '..', "/", :title=>'Go up' %></td>
+        <td></td>
       </tr>
     </tr>
     <% @objects.each do |object| %>
       <tr>
-        <td width="17px"><%= link_to image_tag('film.png'), object.url %></td>
-        <td><%= link_to object.key, "http://s3.amazonaws.com#{object.path}?torrent" %></td>
+        <td width="17px"><%= link_to image_tag('film_save.png'), object.url, :title=>'Standart download' %></td>
+        <td width="17px"><%= link_to image_tag('film_link.png'), "http://s3.amazonaws.com#{object.path}?torrent", :title=>'Download as a torrent' %></td>
+        <td style="padding-left: 10px;"><%= link_to object.key, object.url %></td>
       </tr>
     <% end %>
   </table>
