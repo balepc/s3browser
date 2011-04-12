@@ -1,8 +1,8 @@
 == s3browser
+S3 Browser - tool for browsing AWS S3 storage as a FTP server.
 
 = Setup 
 Just put your keys in s3.yml
-
 
 = Deploy
 config.ru is ready deployment script for Heroku hosting.
